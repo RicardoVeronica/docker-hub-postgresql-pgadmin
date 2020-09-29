@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  db:
+    build: .
+    environment:
+      - POSTGRES_DB=mydb
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=SuperSecret
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    networks:
+      - postgres-network
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=mail@mail.com
+      - PGADMIN_DEFAULT_PASSWORD=SuperSecret
+    ports:
+      - 16543:80
+    depends_on:
+      - db
+    networks:
+      - postgres-network
+
+networks:
+  postgres-network:
+    driver: bridge
