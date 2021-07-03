@@ -1,8 +1,7 @@
 # Docker and Postgres
 
-
-## Pull the image
-    $ docker pull ricardoveronica/postgres-pgadmin:tagname
+## Just clone the repo
+    $ git clone https://github.com/RicardoVeronica/docker-hub-postgresql-pgadmin.git
 
 #### Before starting
 Go to, docker-compose.yml and put your own data in services
@@ -15,8 +14,6 @@ For pgadmin:
 * PGADMIN_DEFAULT_PASSWORD
 
 ### Run
-    $ docker-compose up
-    # For detached mode
     $ docker-compose up -d
 
 ### Start Postgres
